@@ -1,0 +1,15 @@
+.sidebarContainer {
+  margin-top: 0px;
+  width: 300px;
+  height: 100%;
+  box-sizing: border-box;
+  float: left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media (max-width: 500px) {
+  .sidebarContainer {
+    width: 150px;
+  }
+}

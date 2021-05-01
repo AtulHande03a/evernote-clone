@@ -1,0 +1,53 @@
+.editorContainer {
+  height: 100vh;
+  box-sizing: border-box;
+  width: 135%;
+}
+.expandIcon {
+  font-size: 2rem !important;
+  cursor: pointer;
+  margin-right: 0rem;
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+.editIcon {
+  position: absolute;
+  left: 310px;
+  top: 12px;
+  color: white;
+  width: 10;
+  height: 10;
+}
+.titleInput {
+  height: 50px;
+  box-sizing: border-box;
+  border: none;
+  padding: 5px;
+  font-size: 24px;
+  width: calc(100% - 300px);
+  background-color: #353434;
+  color: white;
+  padding-left: 50px;
+}
+
+@media (max-width: 500px) {
+  .expandIcon {
+    font-size: 1.5rem !important;
+    display: flex;
+    position: sticky;
+    right: 5px;
+  }
+  .editorContainer {
+    height: 100vh;
+    width: 140vw;
+  }
+  .editIcon {
+    left: 163px;
+    width: 5;
+    height: 5;
+  }
+  .titleInput {
+    font-size: 15px;
+  }
+}

@@ -2,8 +2,9 @@ import React from "react";
 import ReactQuill from "react-quill";
 import debounce from "../helpers";
 import BorderColorIcon from "@material-ui/icons/BorderColor";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "./styles";
+import "./styles.css";
+import screenfull from "screenfull";
+import FullscreenIcon from "@material-ui/icons/Fullscreen";
 
 class EditorComponent extends React.Component {
   constructor() {
@@ -21,6 +22,11 @@ class EditorComponent extends React.Component {
       title: this.props.selectedNote.title,
       id: this.props.selectedNote.id,
     });
+    if (screenfull.isEnabled) {
+      screenfull.on("change", () => {
+        console.log("Fullscreen?", screenfull.isFullscreen ? "Yes" : "No");
+      });
+    }
   };
 
   componentDidUpdate = () => {
@@ -34,17 +40,19 @@ class EditorComponent extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
-
     return (
-      <div className={classes.editorContainer}>
-        <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
+      <div className="editorContainer">
+        <BorderColorIcon className="editIcon"></BorderColorIcon>
         <input
-          className={classes.titleInput}
+          className="titleInput"
           placeholder="Note title..."
           value={this.state.title ? this.state.title : ""}
           onChange={(e) => this.updateTitle(e.target.value)}
         ></input>
+        <FullscreenIcon
+          className="expandIcon"
+          onClick={this.toggleFullScreen}
+        />
         <ReactQuill
           value={this.state.text}
           onChange={this.updateBody}
@@ -66,6 +74,11 @@ class EditorComponent extends React.Component {
       body: this.state.text,
     });
   }, 1500);
+  toggleFullScreen = () => {
+    if (screenfull.isEnabled) {
+      screenfull.toggle();
+    }
+  };
 }
 
-export default withStyles(styles)(EditorComponent);
+export default EditorComponent;

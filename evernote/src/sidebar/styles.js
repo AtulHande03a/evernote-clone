@@ -21,20 +21,11 @@ const styles = (theme) => ({
     height: "35px",
     borderBottom: "1px solid black",
     borderRadius: "0px",
-    backgroundColor: "green", //chaged here
+    backgroundColor: "#353434",
     color: "white",
     "&:hover": {
-      backgroundColor: "#88a2ce",
+      backgroundColor: "#afa5a5",
     },
-  },
-  sidebarContainer: {
-    marginTop: "0px",
-    width: "300px",
-    height: "100%",
-    boxSizing: "border-box",
-    float: "left",
-    overflowY: "scroll",
-    overflowX: "hidden",
   },
   newNoteInput: {
     width: "100%",
@@ -43,15 +34,19 @@ const styles = (theme) => ({
     outline: "none",
     border: "none",
     paddingLeft: "5px",
+    backgroundColor: "#f9f2f2",
     "&:focus": {
-      outline: "2px solid rgba(81, 203, 238, 1)",
+      outline: "2px solid #afa5a5",
     },
   },
   newNoteSubmitBtn: {
     width: "100%",
-    backgroundColor: "#28787c",
+    backgroundColor: "#353434",
     borderRadius: "0px",
     color: "white",
+    "&:hover": {
+      backgroundColor: "#afa5a5",
+    },
   },
 });
 
